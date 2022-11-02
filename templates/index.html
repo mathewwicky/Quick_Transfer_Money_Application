@@ -1,3 +1,14 @@
-<p>Quick Money Transfer</p>
-<p>Send money to your loved ones across all boundaries worldwide 
-    thank you.</p>
+{% extends 'base.html' %}
+
+{% block page_header %}
+<div class="jumbotron">
+
+    <h1 class="display-3">Send money to your loved ones.</h1>
+    <p class="lead">You can easily send money across the globe with 
+        the most secure and quick platform.
+        </p>
+        <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+role="button">Register &raquo;</a>
+</div>
+
+{% endblock page_header %}

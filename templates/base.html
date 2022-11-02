@@ -1,11 +1,46 @@
-<p>
+{% load bootstrap5 %}
 
-    {% if user.is_authenticated %}
-    Hello, {{ user.username }}.
-    <a href="{% url 'users:logout' %}">Log out</a>
-    {% else %}
-    <a href="{% url 'users:register' %}">Register</a> -
-    <a href="{% url 'users:login' %}">Log in</a>
-{% endif %}    
-    </p>
-    {% block content %}{% endblock content %}
+
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <title>Quicky Transfer Money</title>
+    {% bootstrap_css %}
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+            <div class="collapse navbar-collapse" id="navbarCollapse">   
+                    <ul class="navbar-nav ml-auto">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                            <span class="navbar-text">Welcome, {{ user.first_name }}.</span>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'users:logout' %}">Log
+                            out</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                            <a class="nav-link" href="{% url 'users:register' %}">Register</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="{% url 'users:login' %}">Log
+                            in</a></li>
+                        {% endif %}
+                    </ul>
+            </div>
+    </nav>
+
+    <main role="main" class="container">
+        <div class="pb-2 mb-2 border-bottom">
+        {% block page_header %}{% endblock page_header %}
+        </div>
+        <div>
+        {% block content %}{% endblock content %}
+        </div>
+    </main>
+</body>
+
+</html>

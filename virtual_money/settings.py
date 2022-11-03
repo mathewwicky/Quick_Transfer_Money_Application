@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 
     #third party apps.
     'bootstrap4',
+    'django_countries',
    
 
 

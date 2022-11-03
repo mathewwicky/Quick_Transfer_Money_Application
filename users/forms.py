@@ -10,7 +10,7 @@ class UserRegistrationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('first_name','last_name','phone_number','email','date_of_birth','username')
+        fields = ('first_name','last_name','phone_number','email','date_of_birth','nationality','username')
         # widgets = {'date_of_birth': DatePickerInput(),}
 
     def clean_password2(self):

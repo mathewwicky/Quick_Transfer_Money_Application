@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'transfers',
 
     #third party apps.
-    'bootstrap5',
+    'bootstrap4',
    
 
 

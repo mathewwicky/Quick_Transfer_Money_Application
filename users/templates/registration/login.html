@@ -1,13 +1,27 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+<h2 style="text-align:center">Log into your account.</h2>
+{% endblock page_header %}
+
 {% block content %}
-  {% if form.errors %}
-      <p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
- <form method="post" action="{% url 'users:login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-
-  <button name="submit">Log in</button>
-  <input type="hidden" name="next"
- /></form>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6">
+<form method="post" action="{% url 'users:login' %}" class="form">
+    {% csrf_token %}
+    
+    <div class="form-row">
+        <div class="col-md-12 form-group">
+            {% bootstrap_form form  %}
+        </div>
+    </div>
+    {% buttons %}
+    <button name="submit" class="btn btn-primary">Log in</button>
+    {% endbuttons %}
+    <input type="hidden" name="next"
+    value="{% url 'transfers:index' %}" />
+</form>
+        </div></div></div>
 {% endblock content %}

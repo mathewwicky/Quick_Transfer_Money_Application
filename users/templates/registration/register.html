@@ -1,8 +1,57 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block page_header %}
+<h2 style="text-align:center; font-family:'Lucida Sans'; font-size: large; font-weight: bold;">
+    Create an account</h2>
+
+{% endblock page_header %}
 
 {% block content %}
-<form method="post" action="{% url 'users:register' %}">
-{% csrf_token %}
-{{ form.as_p }}
-<button name="submit">Register</button>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6">
+<form method="post" action="{% url 'users:register' %}" class="form">
+    {% csrf_token %}
+    <div class="form-row">
+            <div class="col-md-6">
+                {% bootstrap_field form.first_name placeholder=False %}
+            </div>
+            <div class="col-md-6">
+                {% bootstrap_field form.last_name placeholder=False%}
+            </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6">
+            {% bootstrap_field form.email placeholder=False %}
+        </div>
+        <div class="col-md-6">
+            {% bootstrap_field form.phone_number placeholder=False%}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6">
+            {% bootstrap_field form.date_of_birth placeholder=False %}
+        </div>
+        
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-6">
+            {% bootstrap_field form.password1 placeholder=False %}
+        </div>
+        <div class="col-md-6">
+            {% bootstrap_field form.password2 placeholder=False%}
+        </div>
+    </div>
+    {% buttons %}
+    <button name="submit" class="btn btn-primary">Sign up</button>
+    {% endbuttons %}
+    <input type="hidden" name="next" value="{% url 'users:login'
+    %}" />
 </form>
+        </div>
+    </div>
+</div>
 {% endblock content %}

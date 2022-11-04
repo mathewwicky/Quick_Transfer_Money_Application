@@ -15,11 +15,14 @@
 <form method="post" action="{% url 'users:register' %}" class="form">
     {% csrf_token %}
     <div class="form-row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 {% bootstrap_field form.first_name placeholder=False %}
             </div>
-            <div class="col-md-6">
+                        <div class="col-md-4">
                 {% bootstrap_field form.last_name placeholder=False%}
+            </div>
+            <div class="col-md-4">
+                {% bootstrap_field form.username placeholder=False %}
             </div>
     </div>
     <div class="form-row">
